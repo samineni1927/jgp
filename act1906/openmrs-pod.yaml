@@ -5,6 +5,7 @@ metadata:
   name: openmrs
   labels:
     app: openmrs
+    version: "1.0"
 spec:
   containers:
     - name: openmrs

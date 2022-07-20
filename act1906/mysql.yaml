@@ -5,10 +5,11 @@ metadata:
   name: mysql-pod
   labels:
     app: db
+    version: "8.0"
 spec:
   containers:
     - name: mysqldb
-      image: mysql:8
+      image: mysql:8.0
       ports:
         - containerPort: 3306
           protocol: TCP
