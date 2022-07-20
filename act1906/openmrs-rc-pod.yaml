@@ -5,17 +5,14 @@ metadata:
   name: openmrs-rc
   labels:
     app: openmrs
-    ver: 1.0
 spec:
   replicas: 3
   selector:
     app: openmrs
-    ver: 1.0
   template:
     metadata:
       labels:
         app: openmrs
-        ver: 1.0
     spec:
       containers:
         - name: openmrs

@@ -5,7 +5,6 @@ metadata:
   name: mysql-pod
   labels:
     app: db
-    ver: 8.0
 spec:
   containers:
     - name: mysqldb
