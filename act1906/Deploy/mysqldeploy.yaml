@@ -10,54 +10,55 @@ spec:
   resources:
     requests:
       storage: 5Gi
+
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-deploy
+  name: mysql-deployment
 spec:
   minReadySeconds: 30
   replicas: 1
   selector:
     matchLabels:
-      app: mysql
+      app: db
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        app: mysql
+        app: db
     spec:
       containers:
-        - name: mysqldb
-          image: mysql:8.0
+        - image: mysql:8.0
+          name: mysql
           ports:
             - containerPort: 3306
               protocol: TCP
           volumeMounts:
             - mountPath: /var/lib/mysql
-              name: mysqlvolume
-		  env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: rootroot
-        - name: MYSQL_DATABASE
-          value: openmrs
-        - name: MYSQL_USER
-          value: sharath
-        - name: MYSQL_PASSWORD
-          value: samineni
+              name: mysql-vol
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: rootroot
+            - name: MYSQL_DATABASE
+              value: openmrs
+            - name: MYSQL_USER
+              value: sharath
+            - name: MYSQL_PASSWORD
+              value: samineni
       volumes:
-        - name: mysqlvolume
-          persistentVolumeClaim:
+        - name: mysql-vol
+          persistentVolumeClaim: 
             claimName: azure-managed-disk
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: openmrssvc
+  name: mysqlsvc
 spec:
   selector:
-    app: openmrs
-    version: "1.0"
-  type: LoadBalancer
+    app: db
+  type: ClusterIP
   ports:
-    - port: 8080
+    - port: 3306
