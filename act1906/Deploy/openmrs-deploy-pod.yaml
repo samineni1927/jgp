@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: openmrs-deploy-pod
 spec:
-  minReadySeconds: 10
+  minReadySeconds: 30
   replicas: 3
   selector:
     matchLabels:
