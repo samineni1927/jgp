@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: openmrs
-          image: saminenikittu/dockerprac:openmrs
+          image: saminenikittu/openmrs:1.0
           ports:
             - containerPort: 49153
               protocol: TCP

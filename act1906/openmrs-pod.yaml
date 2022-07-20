@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-  name: openmrs1
+  name: openmrs
   labels:
-    app: openmrs1
+    app: openmrs
     ver: 1.0
 spec:
   containers:
     - name: openmr1
-      image: saminenikittu/dockerprac:openmrs
+      image: saminenikittu/openmrs:1.0
       ports:
         - containerPort: 49153
           protocol: TCP
