@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: openmrs-rc-pod
+  name: openmrs-rc
   labels:
     app: openmrs
     ver: 1.0
