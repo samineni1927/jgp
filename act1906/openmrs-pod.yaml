@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-  name: openmrs
+  name: openmrs-pod
   labels:
     app: openmrs
     ver: 1.0

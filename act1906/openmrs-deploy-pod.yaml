@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: openmrs-deploy
+  name: openmrs-deploy-pod
 spec:
   minReadySeconds: 10
   replicas: 3
